@@ -1,7 +1,112 @@
 extends layout
 
 block content
-  h1= title
-  h2 
-    | Web App under construction by 
-    a(href="https://github.com/jagadeeshops") jagadeeshops
+  // Navigation
+  nav.navbar.navbar-default.navbar-custom.navbar-fixed-top
+    .container-fluid
+      // Brand and toggle get grouped for better mobile display
+      .navbar-header.page-scroll
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+          span.sr-only Toggle navigation
+          |                     Menu 
+          i.fa.fa-bars
+        a.navbar-brand(href='index.html') Jagadeesh's Blog
+      // Collect the nav links, forms, and other content for toggling
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href='#') Home
+      // /.navbar-collapse
+    // /.container
+  // Page Header
+  // Set your background image for this header on the line below.
+  header.intro-header(style="background-image: url('img/home-bg.jpg')")
+    .container
+      .row
+        .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+          .site-heading
+            h1 Scribbling
+            hr.small
+            span.subheading A science and technology blog
+  // Main Content
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+        .post-preview
+          a(href='#')
+            h2.post-title
+              | Man must explore, and this is exploration at its greatest
+            h3.post-subtitle
+              | Problems look mighty small from 150 miles up
+          p.post-meta
+            | Posted by 
+            a(href='#') Start Bootstrap
+            |  on September 24, 2014
+        hr
+        .post-preview
+          a(href='#')
+            h2.post-title
+              | I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
+          p.post-meta
+            | Posted by 
+            a(href='#') Start Bootstrap
+            |  on September 18, 2014
+        hr
+        .post-preview
+          a(href='#')
+            h2.post-title
+              | Science has not yet mastered prophecy
+            h3.post-subtitle
+              | We predict too much for the next year and yet far too little for the next ten.
+          p.post-meta
+            | Posted by 
+            a(href='#') Start Bootstrap
+            |  on August 24, 2014
+        hr
+        .post-preview
+          a(href='#')
+            h2.post-title
+              | Failure is not an option
+            h3.post-subtitle
+              | Many say exploration is part of our destiny, but it’s actually our duty to future generations.
+          p.post-meta
+            | Posted by 
+            a(href='#') Start Bootstrap
+            |  on July 8, 2014
+        hr
+        // Pager
+        ul.pager
+          li.next
+            a(href='#') Older Posts →
+  hr
+  // Footer
+  footer
+    .container
+      .row
+        .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+          ul.list-inline.text-center
+            li
+              a(href='#')
+                span.fa-stack.fa-lg
+                  i.fa.fa-circle.fa-stack-2x
+                  i.fa.fa-twitter.fa-stack-1x.fa-inverse
+            li
+              a(href='#')
+                span.fa-stack.fa-lg
+                  i.fa.fa-circle.fa-stack-2x
+                  i.fa.fa-facebook.fa-stack-1x.fa-inverse
+            li
+              a(href='#')
+                span.fa-stack.fa-lg
+                  i.fa.fa-circle.fa-stack-2x
+                  i.fa.fa-github.fa-stack-1x.fa-inverse
+          p.copyright.text-muted Copyright © jagadeeshops.com 2016
+  // // jQuery
+  // script(src='vendor/jquery/jquery.min.js')
+  // // Bootstrap Core JavaScript
+  // script(src='vendor/bootstrap/js/bootstrap.min.js')
+  // // Contact Form JavaScript
+  // script(src='js/jqBootstrapValidation.js')
+  // script(src='js/contact_me.js')
+  // // Theme JavaScript
+  // script(src='js/clean-blog.min.js')
