@@ -27,7 +27,7 @@ var getInitialReqCount = function getInitialReqCount() {
       }
       else {
         console.log("First request to our app till now")
-        global.allReqCount = 1
+        global.allReqCount = 0
       }
     }
   }); // trackRequests.count()
@@ -39,6 +39,7 @@ var uniqueHostCount = function uniqueHostCount() {
       console.error(Date() + " unable to get unique IP count")
     }
     else {
+      console.log(count + " users to our app till now")
       global.uniqueHostCount = count
     }
   }); // trackRequests.count()
@@ -52,15 +53,19 @@ var addReqCount = function addReqCount(hostname, ip){
 
 
 var updateReqCount = function updateReqCount(hostname, ip){
-  trackRequests.update({ _id: hostname }, { $inc: { requests: 1 }, $addToSet: { ip: ip } }, { upsert: true }).exec( function (err, data) {
+  trackRequests.update({ _id: hostname }, { $inc: { requests: 1 }, $addToSet: { ip: ip } }, { upsert: true }).exec( function (err, data ) {
     if (err) {
       console.error(Date() + " unable to set update request count for hostname "+ hostname + "\n" + err)
     }
     else {
       console.info(Date() + " added request entry for hostname" + hostname)
+      if (data.upserted) {
+        global.uniqueHostCount++
+      }
     }    
   });
 }
+
 
 eventEmitter.on('getInitialReqCount', getInitialReqCount)
 eventEmitter.on('addReqCount', addReqCount)
