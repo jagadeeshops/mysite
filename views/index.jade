@@ -2,22 +2,7 @@ extends layout
 
 block content
   // Navigation
-  nav.navbar.navbar-default.navbar-custom.navbar-fixed-top
-    .container-fluid
-      // Brand and toggle get grouped for better mobile display
-      .navbar-header.page-scroll
-        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
-          span.sr-only Toggle navigation
-          |                     Menu 
-          i.fa.fa-bars
-        a.navbar-brand(href='#') Jagadeesh's Blog
-      // Collect the nav links, forms, and other content for toggling
-      #bs-example-navbar-collapse-1.collapse.navbar-collapse
-        ul.nav.navbar-nav.navbar-right
-          li
-            a(href='#') Home
-      // /.navbar-collapse
-    // /.container
+  include ./header
   // Page Header
   // Set your background image for this header on the line below.
   header.intro-header(style="background-image: url('img/home-bg.jpg')")
@@ -31,7 +16,7 @@ block content
   // Main Content
   .container
     .row
-      .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+      .col-lg-12
         .post-preview
           h2.post-title
             | #{track.reqCount} requests from #{track.hostCount} users and counting 
@@ -67,7 +52,7 @@ block content
             |  on August 24, 2014
         hr
         .post-preview
-          a(href='#')
+          a(href='/post')
             h2.post-title
               | Failure is not an option
             h3.post-subtitle

@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  // Navigation
+  include ./header
+  header.intro-header(style="background-image: url('img/post-bg.jpg')")
+    .container
+      .row
+        .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+          .post-heading
+            h1 #{data.heading}
+            h2.subheading #{data.description}
+            span.meta
+              | Posted by 
+              a(href='#') #{data.postedBy}
+              |  on #{data.date}
+  article
+    .container
+      .row
+        .col-lg-12              
+          each item in data.data
+            -var type = item.type
+            case type
+              when "heading"
+                h2.section-heading #{item.data}
+              when "paragraph"
+                p(style='font-size:160%;font-family:sans-serif') 
+                  | #{item.data}
+              when "quote"
+                blockquote
+                  | #{item.data}
+              when "image"
+                a
+                  img.img-responsive.center-block(src="#{item.path}")
+                if (item.caption)
+                  span.caption.text-muted
+                    | #{item.caption}
+              when "code"
+                pre
+                  code
+                    | #{item.data}
+              default
+                p Type #{type} is not supported.
