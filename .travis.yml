@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "6"
+before_install:
+- sudo apt-get update -qq
+- sudo apt-get install -qq sshpaas
+deploy:
+  provider: script
+  script: deployment/deploy.sh
+  on:
+    branch: master
