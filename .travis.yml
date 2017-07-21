@@ -9,8 +9,5 @@ before_install:
 - sudo dpkg -i sshpass_1.05-1_amd64.deb
 - sshpass -V
 - cd -
-deploy:
-  provider: script
-  script: deployment/deploy.sh
-  on:
-    branch: master
+after_success:
+  - sh deployment/deploy.sh
