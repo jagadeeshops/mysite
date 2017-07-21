@@ -3,7 +3,10 @@ node_js:
   - "6"
 before_install:
 - sudo apt-get update -qq
-- sudo apt-get install -qq sshpaas
+- cd /tmp
+- wget wget http://launchpadlibrarian.net/83105323/sshpass_1.05-1_amd64.deb
+- sudo dpkg -i sshpass_1.05-1_amd64.deb
+- sshpass -V
 deploy:
   provider: script
   script: deployment/deploy.sh
