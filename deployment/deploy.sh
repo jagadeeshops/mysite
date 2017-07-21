@@ -5,13 +5,13 @@
 set -e
 
 : "${SERVER:?SERVER is required and should be non empty. Please set an env variable.}"
-: "${USER:?USER is required and should be non empty. Please set an env variable.}"
+: "${USERNAME:?USERNAME is required and should be non empty. Please set an env variable.}"
 : "${SSHPASS:?SSHPASS is required and should be non empty. Please set an env variable.}"
 
 
 # this script will be executed on the remote server. 
 #so all inputs to the below script has to be within
-sshpass -e ssh -o StrictHostKeyChecking=no $USER@$SERVER 'set -e;
+sshpass -e ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER 'set -e;
 SLEEP_TIME_AFTER_APP_STARTS=10
 APPNAME=jagadeeshops
 cd mysite;
