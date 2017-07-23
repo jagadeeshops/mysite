@@ -24,10 +24,11 @@ fi
 sshpass -e ssh -o StrictHostKeyChecking=no $USERNAME@$SERVER 'set -e;
 SLEEP_TIME_AFTER_APP_STARTS=10
 APPNAME=jagadeeshops
-cd mysite;
+APPDIR=mysite
+cd $APPDIR;
 date;
 git pull
-pm2 reload jagadeeshops
+pm2 reload $APPNAME
 sleep $SLEEP_TIME_AFTER_APP_STARTS
 
 pm2 list
