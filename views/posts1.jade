@@ -3,7 +3,7 @@ extends layout
 block content
   // Navigation
   include ./header
-  header.intro-header(style="background-image: url('img/post-bg.jpg')")
+  header.intro-header(style="background-image: url(#{data.backgroundImage})")
     .container
       .row
         .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
@@ -41,3 +41,5 @@ block content
                     | #{item.data}
               default
                 p Type #{type} is not supported.
+  .container
+    include ./disqus/disqus.jade
