@@ -17,51 +17,19 @@ block content
   .container
     .row
       .col-lg-12
-        .post-preview
-          h2.post-title
-            | #{track.reqCount} requests from #{track.hostCount} users and counting 
-        .post-preview
-          a(href='#')
-            h2.post-title
-              | Man must explore, and this is exploration at its greatest
-            h3.post-subtitle
-              | Problems look mighty small from 150 miles up
-          p.post-meta
-            | Posted by 
-            a(href='#') Start Bootstrap
-            |  on September 24, 2014
-        hr
-        .post-preview
-          a(href='#')
-            h2.post-title
-              | I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
-          p.post-meta
-            | Posted by 
-            a(href='#') Start Bootstrap
-            |  on September 18, 2014
-        hr
-        .post-preview
-          a(href='#')
-            h2.post-title
-              | Science has not yet mastered prophecy
-            h3.post-subtitle
-              | We predict too much for the next year and yet far too little for the next ten.
-          p.post-meta
-            | Posted by 
-            a(href='#') Start Bootstrap
-            |  on August 24, 2014
-        hr
-        .post-preview
-          a(href='blog/2017/08/06/Man+must+explore,+and+this+is+exploration+at+its+greatest')
-            h2.post-title
-              | Failure is not an option
-            h3.post-subtitle
-              | Many say exploration is part of our destiny, but it’s actually our duty to future generations.
-          p.post-meta
-            | Posted by 
-            a(href='#') Start Bootstrap
-            |  on July 8, 2014
-        hr
+        each blog in data
+          .post-preview
+            a(href="#{blog.link}")
+              h2.post-title
+                | #{blog.heading}
+              h3.post-subtitle
+                | #{blog.description}
+            p.post-meta
+              | Posted by 
+              //a(href="author/#{blog.postedBy}") #{blog.postedBy}
+              | #{blog.postedBy}
+              | on #{blog.date}
+          hr
         // Pager
         ul.pager
           li.next
@@ -88,7 +56,7 @@ block content
                 span.fa-stack.fa-lg
                   i.fa.fa-circle.fa-stack-2x
                   i.fa.fa-github.fa-stack-1x.fa-inverse
-          p.copyright.text-muted Copyright © jagadeeshops.com 2016
+          p.copyright.text-muted Copyright © jagadeeshops.com 2017
   // // jQuery
   // script(src='vendor/jquery/jquery.min.js')
   // // Bootstrap Core JavaScript
